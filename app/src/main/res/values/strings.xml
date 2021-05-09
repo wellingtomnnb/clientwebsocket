@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Teste WebSocket</string>
+    <string name="msg_socket_fail">Falha na conexão com o socket</string>
 </resources>

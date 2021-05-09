@@ -6,27 +6,30 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 class EventModel {
-    @SerializedName("actived")
+    @SerializedName("ev")
     @Expose
-    var actived: Boolean? = null
-    @SerializedName("app")
+    var ev: String? = null
+    @SerializedName("data")
     @Expose
-    var app: Boolean? = null
-    @SerializedName("name")
-    @Expose
-    var name: String? = null
-    @SerializedName("number")
-    @Expose
-    var number: String? = null
-    @SerializedName("server")
-    @Expose
-    var server: Int? = null
-    @SerializedName("web")
-    @Expose
-    var web: Boolean? = null
-    @SerializedName("dedicated")
-    @Expose
-    var isDedicated: Boolean? = null
+    var data: Data? = null
 
+
+    class Data{
+        @SerializedName("hash_id")
+        @Expose
+        var hash_id: String? = null
+
+        @SerializedName("channel")
+        @Expose
+        var channel: String? = null
+
+        @SerializedName("type")
+        @Expose
+        var type: String? = null
+
+        @SerializedName("message")
+        @Expose
+        var message: String? = null
+    }
 
 }
