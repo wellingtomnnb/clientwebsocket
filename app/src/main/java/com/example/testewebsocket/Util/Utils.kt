@@ -13,20 +13,6 @@ class Utils {
 
         fun isMarshmallowOrMore(): Boolean{ return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M }
 
-        fun jsonToChannelList(array: JSONArray): List<EventModel>{
-            val gson = Gson()
-            val tamanho = array.length()
-            val data = mutableListOf<EventModel>()
-
-            for(i in 0 until tamanho){
-                val json = array.getJSONObject(i)
-                val channel = gson.fromJson(json.toString(), EventModel::class.java)
-
-                data.add(channel)
-            }
-
-            return data.sortedWith(compareBy {it.server})
-        }
 
         fun jsonToEventObject(obj: JSONObject): EventModel{
             val gson = Gson()

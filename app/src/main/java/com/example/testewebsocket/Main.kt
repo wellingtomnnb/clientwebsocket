@@ -8,10 +8,10 @@ import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
 import com.example.testewebsocket.Modelss.EventModel
 import com.example.testewebsocket.Modelss.NotifyModel
-import com.example.testewebsocket.databinding.ActivityMainBinding
 import com.example.testewebsocket.Socket.EventHandle
 import com.example.testewebsocket.Socket.SocketClient
 import com.example.testewebsocket.Util.MyLog
+import com.example.testewebsocket.databinding.ActivityMainBinding
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.WebSocket

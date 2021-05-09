@@ -12,7 +12,6 @@ class SocketClient (private val listener: EventHandle): WebSocketListener(){
     private val log =
         MyLog(SocketClient::class.java.simpleName)
     private val notification = "notification"
-    private val notifyEvent = "add_notify"
 
     override fun onOpen(webSocket: WebSocket, response: Response) {
         super.onOpen(webSocket, response)
@@ -37,17 +36,6 @@ class SocketClient (private val listener: EventHandle): WebSocketListener(){
                 if(ev == notification && hasData) {
                     val obj = json.getJSONObject("data")
                     listener.onEvent(Utils.jsonToEventObject(obj))
-                }
-                else if(ev == notifyEvent){
-                    val hasFile = json.has("file")
-                    val hasTime = json.has("timing")
-
-                    log.showD("onMessage", "hasFile", hasFile)
-                    log.showD("onMessage", "hasTime", hasTime)
-
-                    if(hasFile && hasTime) {
-                        listener.onNotification(Utils.jsonToNotify(json))
-                    }
                 }
             }
         }
