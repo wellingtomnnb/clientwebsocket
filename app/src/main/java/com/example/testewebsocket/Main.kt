@@ -19,7 +19,7 @@ import okhttp3.WebSocket
 class Main : AppCompatActivity(), EventHandle {
 
     private lateinit var binding: ActivityMainBinding
-    private val log = MyLog(Main::class.java.simpleName)
+    private val loggggg = MyLog(Main::class.java.simpleName)
     private var ws: WebSocket? = null
     private val loopDelay = 500L
     private val tryAgainDelay = 5000L
