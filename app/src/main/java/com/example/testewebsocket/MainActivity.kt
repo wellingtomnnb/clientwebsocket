@@ -1,9 +1,10 @@
 package com.example.testewebsocket
+
 import android.Manifest
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
 import com.example.testewebsocket.Modelss.EventModel
@@ -16,10 +17,10 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.WebSocket
 
-class Main : AppCompatActivity(), EventHandle {
+class MainActivity : AppCompatActivity() , EventHandle {
 
     private lateinit var binding: ActivityMainBinding
-    private val log = MyLog(Main::class.java.simpleName)
+    private val log = MyLog(MainActivity::class.java.simpleName)
     private var ws: WebSocket? = null
     private val loopDelay = 500L
     private val tryAgainDelay = 5000L
@@ -84,7 +85,5 @@ class Main : AppCompatActivity(), EventHandle {
         val listener = SocketClient(this)
         ws = client.newWebSocket(request, listener)
     }
-
-
 
 }
