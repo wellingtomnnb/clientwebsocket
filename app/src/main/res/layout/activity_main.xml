@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="EVENTOS SOCKET"
+            android:textColor="@color/black"
             android:textSize="36sp"
             android:textStyle="bold" />
 
@@ -39,6 +40,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text="TIPO"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -48,6 +50,11 @@
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
                     android:textStyle="normal" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvType"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
             </LinearLayout>
 
@@ -63,6 +70,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text="CANAL"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -72,6 +80,11 @@
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
                     android:textStyle="normal" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvChannel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
             </LinearLayout>
 
             <LinearLayout
@@ -86,6 +99,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text="MENSAGEM"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -95,6 +109,11 @@
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
                     android:textStyle="normal" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
             </LinearLayout>
         </LinearLayout>
 
