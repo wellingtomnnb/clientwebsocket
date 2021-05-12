@@ -20,17 +20,8 @@ import okhttp3.WebSocket
 class MainActivity : AppCompatActivity() , EventHandle {
 
     private lateinit var binding: ActivityMainBinding
-    private val log = MyLog(MainActivity::class.java.simpleName)
     private var ws: WebSocket? = null
-    private val loopDelay = 500L
     private val tryAgainDelay = 5000L
-    private val labelDelay = 1500L
-    private val notifyDelay = 1000L
-    private val filaNotify = mutableListOf<NotifyModel>()
-    private var isNotifying = false
-    private var volume = 10000f
-    private var isFirstTime = true
-    private var isRecording = false
 
     // Adapters
     /*
@@ -55,19 +46,10 @@ class MainActivity : AppCompatActivity() , EventHandle {
     }
 
     override fun onEvent(data: EventModel) {
-        runOnUiThread {
-            //binding.tvChannelCount.text = textCount
+        binding.tvType.text = data.data?.type
+        binding.tvChannel.text = data.data?.channel
+        binding.tvMessage.text = data.data?.message
 
-            /*
-                processoA.postData(data)
-                processoB.postData(data)
-                canal.postData(data)
-                servidor.postData(data)
-                tipo.postData(data)
-                status.postData(data)
-             */
-
-        }
     }
 
     override fun onSocketFail() {

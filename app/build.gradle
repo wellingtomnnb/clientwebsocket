@@ -17,7 +17,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField 'String', 'server', '"ws://localhost:4001"'
+        buildConfigField 'String', 'server', '"ws://69.69.69.146:4001"'
     }
 
     dataBinding { enabled true }

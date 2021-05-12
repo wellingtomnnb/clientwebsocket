@@ -1,5 +1,6 @@
 package com.example.testewebsocket.Socket
 
+import android.util.Log
 import com.example.testewebsocket.Util.MyLog
 import com.example.testewebsocket.Util.Utils
 import okhttp3.Response
@@ -15,27 +16,26 @@ class SocketClient (private val listener: EventHandle): WebSocketListener(){
 
     override fun onOpen(webSocket: WebSocket, response: Response) {
         super.onOpen(webSocket, response)
-        log.showD("onOpen", "response", response.message())
+        Log.i("onOpen", "response: " + response.message())
     }
 
     override fun onMessage(webSocket: WebSocket, text: String) {
         super.onMessage(webSocket, text)
-        log.showD("onMessage", "text", text)
+        Log.i("onMessage", "text: " + text)
 
         if(text != ""){
-            val json = JSONObject(text)
-            val hasData = json.has("data")
-            val hasEv = json.has("ev")
+            val data = JSONObject(text)
+            val hasData = data.has("data")
+            val hasEv = data.has("ev")
 
             log.showD("onMessage", "hasChannel", hasData)
             log.showD("onMessage", "hasEv", hasEv)
 
             if(hasEv){
-                val ev = json.getString("ev")
+                val ev = data.getString("ev")
 
                 if(ev == notification && hasData) {
-                    val obj = json.getJSONObject("data")
-                    listener.onEvent(Utils.jsonToEventObject(obj))
+                    listener.onEvent(Utils.jsonToEventObject(data))
                 }
             }
         }
