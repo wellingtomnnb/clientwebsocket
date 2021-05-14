@@ -44,13 +44,6 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/tvType"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:textStyle="normal" />
-
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvType"
                     android:layout_width="match_parent"
@@ -74,13 +67,6 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/tvChannel"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:textStyle="normal" />
-
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvChannel"
                     android:layout_width="match_parent"
@@ -102,13 +88,6 @@
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tvMessage"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:textStyle="normal" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvMessage"
