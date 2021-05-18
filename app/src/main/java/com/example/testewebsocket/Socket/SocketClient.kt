@@ -3,6 +3,8 @@ package com.example.testewebsocket.Socket
 import android.util.Log
 import com.example.testewebsocket.Util.MyLog
 import com.example.testewebsocket.Util.Utils
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import okhttp3.Response
 import okhttp3.WebSocket
 import okhttp3.WebSocketListener
@@ -42,6 +44,8 @@ class SocketClient (private val listener: EventHandle): WebSocketListener(){
         else
             log.showD("onMessage", "text", "vazio")
     }
+
+
 
     override fun onClosed(webSocket: WebSocket, code: Int, reason: String) {
         super.onClosed(webSocket, code, reason)

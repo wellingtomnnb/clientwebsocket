@@ -4,6 +4,8 @@ import android.Manifest
 import android.hardware.SensorManager.getOrientation
 import android.os.Bundle
 import android.os.Handler
+import android.provider.Contacts
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -20,6 +22,10 @@ import com.example.testewebsocket.databinding.ActivityMainBinding
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.WebSocket
+import kotlin.coroutines.CoroutineContext
+import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers.IO
+import okhttp3.Dispatcher
 
 
 class MainActivity : AppCompatActivity() , EventHandle {
@@ -49,9 +55,8 @@ class MainActivity : AppCompatActivity() , EventHandle {
 
     override fun onEvent(event: EventModel) {
 
-        runOnUiThread {
+        GlobalScope.launch(Dispatchers.Main) {
             eventList.add(event)
-
             val tamanho = eventList.size
 
             if(tamanho > 0){
@@ -61,12 +66,11 @@ class MainActivity : AppCompatActivity() , EventHandle {
             }
         }
 
-
     }
 
     override fun onSocketFail() {
-        runOnUiThread {
-            Toast.makeText(this, getString(R.string.msg_socket_fail), Toast.LENGTH_LONG).show()
+        GlobalScope.launch(Dispatchers.Main) {
+            Toast.makeText(baseContext, getString(R.string.msg_socket_fail), Toast.LENGTH_LONG).show()
             Handler().postDelayed({
                 startSocket()
             }, tryAgainDelay)
@@ -108,3 +112,4 @@ class MainActivity : AppCompatActivity() , EventHandle {
     }
 
 }
+

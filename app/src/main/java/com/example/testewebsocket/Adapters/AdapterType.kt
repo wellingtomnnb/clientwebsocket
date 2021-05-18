@@ -6,14 +6,19 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testewebsocket.Modelss.EventModel
 import com.example.testewebsocket.databinding.ItemSocketTypeBinding
+import kotlinx.coroutines.Deferred
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.launch
 
 class AdapterType : RecyclerView.Adapter<AdapterType.TipoVH>() {
 
     private var eventos = listOf<EventModel>()
 
-    fun postData(newData: List<EventModel>){
+    fun postData(newData: List<EventModel>) {
         eventos = newData
         notifyDataSetChanged()
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TipoVH {
